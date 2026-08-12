@@ -1,0 +1,179 @@
+# BiomeIslands 1.5.0
+# 1.5.0 is a QoL/admin release; 1.4.2 terrain generation is unchanged.
+# Commands: /biomeislands or /bi. Permissions are declared in plugin.yml and default to op.
+# IMPORTANT: generation settings are effectively immutable after chunks exist.
+# Test changes in a fresh world; changing them later creates chunk-border seams.
+config-version: 1.5.0
+
+# Vanilla-style fluid cutoff: 63 means the top ocean water block is Y=62.
+sea-level: 63
+
+ocean-settings:
+  # Approximate diameter/spacing of broad ocean climate regions. This is intentionally much
+  # larger than a chunk or an island so oceans do not become a patchwork/checkerboard.
+  region-size: 640
+
+  # When the generated seabed is at least this many blocks below sea level, use the family's
+  # deep counterpart (where Vanilla has one). Near islands the shallow counterpart is used.
+  deep-biome-depth: 14
+
+# Weighted broad ocean climate families. Weight is relative, just like island biome weights.
+# Set weight: 0 to disable a family. Warm ocean has no Vanilla deep variant, so it stays warm.
+#
+# Old 1.3.x configs with the stock `ocean-biome: minecraft:deep_ocean` automatically receive
+# these diverse defaults. If an old config explicitly chose a different ocean-biome, that custom
+# single-biome ocean is preserved until an ocean-biomes list is added.
+ocean-biomes:
+  - biome: minecraft:ocean
+    deep-biome: minecraft:deep_ocean
+    weight: 1.45
+  - biome: minecraft:lukewarm_ocean
+    deep-biome: minecraft:deep_lukewarm_ocean
+    weight: 0.80
+  - biome: minecraft:cold_ocean
+    deep-biome: minecraft:deep_cold_ocean
+    weight: 0.80
+  - biome: minecraft:frozen_ocean
+    deep-biome: minecraft:deep_frozen_ocean
+    weight: 0.35
+  - biome: minecraft:warm_ocean
+    deep-biome: minecraft:warm_ocean
+    weight: 0.40
+
+islands:
+  # Denser staggered spacing, inspired by IslandCraft's classic distribution.
+  spacing: 240
+
+  # Safety radius used by the organic outline. The visible shoreline normally sits well
+  # inside this radius and is deformed by large bays/peninsulas, so this is NOT a circle size.
+  radius: 100
+  radius-variation: 6
+
+  # Classic IslandCraft used fixed staggered centers; coastline noise supplies the variety.
+  center-jitter: 0
+
+  # Width of the coastal biome tag (beach / snowy beach / stony shore where appropriate).
+  coast-width: 10
+
+  # Frequency of the coastline detail noise. Large-scale shape also varies per island.
+  shape-noise-scale: 0.018
+
+terrain:
+  # Lift Vanilla island density by one block before surface rules/decorations run.
+  island-height-offset: 1
+
+  # Compress only absurd Vanilla height spikes. This is NOT a hard island height limit:
+  # the allowance rises as terrain moves inland, so ordinary hills remain fully Vanilla.
+  tame-extreme-relief: true
+  max-coastal-relief: 24
+
+  # After Vanilla cave/aquifer carving, reinforce only below an existing coastal surface so
+  # caves/aquifers cannot hollow the island wall. This never raises or repaints the visible
+  # shoreline; inland caves and lakes are left alone. Set false to disable this safeguard.
+  protect-coastal-shell: true
+  coastal-shell-width: 12
+
+  # Broad deep-ocean floor.
+  ocean-floor-y: 44
+  ocean-floor-variation: 4
+
+  # Land-side shoreline transition. Width varies smoothly around each island.
+  coast-run-up-width: 16
+
+  # Ocean-side transition distance. Wet island boundaries now anchor to the actual local
+  # Vanilla seabed height before fading into the deep basin, so the ocean floor cannot climb
+  # toward sea level and form a raised underwater berm around bays/submerged island edges.
+  ocean-slope-width: 32
+
+vanilla-features:
+  caves: true
+  decorations: true
+  mobs: true
+  structures: true
+
+biome-settings:
+  # High-relief Vanilla biome families can create mountain-scale cliffs and exposed cave cuts
+  # that look jarring on isolated islands. Disabled by default; set true to opt them back in.
+  # Affected: windswept hills/forest/gravelly hills/savanna, snowy slopes, and the peak biomes.
+  allow-extreme-terrain-biomes: false
+
+# Weighted island biome themes.
+#
+# Weight is RELATIVE, not a percentage. A biome with weight 2 is selected about twice as
+# often as one with weight 1. Set weight: 0 to disable a biome without deleting the entry.
+# Decimal weights are supported. Old 1.3.x configs that contain only strings still work.
+biomes:
+  - biome: minecraft:plains
+    weight: 1.60
+  - biome: minecraft:sunflower_plains
+    weight: 0.55
+  - biome: minecraft:forest
+    weight: 1.40
+  - biome: minecraft:flower_forest
+    weight: 0.55
+  - biome: minecraft:birch_forest
+    weight: 0.80
+  - biome: minecraft:old_growth_birch_forest
+    weight: 0.50
+  - biome: minecraft:dark_forest
+    weight: 0.75
+  - biome: minecraft:pale_garden
+    weight: 0.25
+  - biome: minecraft:taiga
+    weight: 1.10
+  - biome: minecraft:snowy_taiga
+    weight: 0.80
+  - biome: minecraft:old_growth_pine_taiga
+    weight: 0.50
+  - biome: minecraft:old_growth_spruce_taiga
+    weight: 0.50
+  - biome: minecraft:jungle
+    weight: 0.80
+  - biome: minecraft:sparse_jungle
+    weight: 0.55
+  - biome: minecraft:bamboo_jungle
+    weight: 0.35
+  - biome: minecraft:swamp
+    weight: 0.65
+  - biome: minecraft:mangrove_swamp
+    weight: 0.35
+  - biome: minecraft:desert
+    weight: 1.00
+  - biome: minecraft:savanna
+    weight: 0.85
+  - biome: minecraft:savanna_plateau
+    weight: 0.45
+  - biome: minecraft:windswept_savanna
+    weight: 0.25
+  - biome: minecraft:badlands
+    weight: 0.20
+  - biome: minecraft:wooded_badlands
+    weight: 0.14
+  - biome: minecraft:eroded_badlands
+    weight: 0.12
+  - biome: minecraft:snowy_plains
+    weight: 0.80
+  - biome: minecraft:ice_spikes
+    weight: 0.18
+  - biome: minecraft:meadow
+    weight: 0.50
+  - biome: minecraft:grove
+    weight: 0.45
+  - biome: minecraft:snowy_slopes
+    weight: 0.35
+  - biome: minecraft:frozen_peaks
+    weight: 0.22
+  - biome: minecraft:jagged_peaks
+    weight: 0.22
+  - biome: minecraft:stony_peaks
+    weight: 0.22
+  - biome: minecraft:windswept_hills
+    weight: 0.40
+  - biome: minecraft:windswept_forest
+    weight: 0.35
+  - biome: minecraft:windswept_gravelly_hills
+    weight: 0.22
+  - biome: minecraft:cherry_grove
+    weight: 0.35
+  - biome: minecraft:mushroom_fields
+    weight: 0.08

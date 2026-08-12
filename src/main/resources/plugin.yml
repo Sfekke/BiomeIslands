@@ -1,0 +1,49 @@
+name: BiomeIslands
+version: '1.5.0'
+main: dev.biomeislands.BiomeIslandsPlugin
+description: Endless ocean generator with separated weighted biome-themed islands, varied ocean climates and Vanilla terrain.
+api-version: '26.2'
+load: STARTUP
+author: Sfekke
+commands:
+  biomeislands:
+    description: BiomeIslands information and administrative diagnostics.
+    aliases: [bi]
+    usage: /biomeislands [info|version|help|status|here|biomes|stats|debug]
+permissions:
+  biomeislands.admin:
+    description: Grants every BiomeIslands administrative command.
+    default: op
+    children:
+      biomeislands.command.info: true
+      biomeislands.command.version: true
+      biomeislands.command.help: true
+      biomeislands.command.status: true
+      biomeislands.command.here: true
+      biomeislands.command.biomes: true
+      biomeislands.command.stats: true
+      biomeislands.command.debug: true
+  biomeislands.command.info:
+    description: View BiomeIslands plugin and creator information.
+    default: op
+  biomeislands.command.version:
+    description: View the BiomeIslands version.
+    default: op
+  biomeislands.command.help:
+    description: View BiomeIslands command help.
+    default: op
+  biomeislands.command.status:
+    description: View active BiomeIslands generator settings.
+    default: op
+  biomeislands.command.here:
+    description: Inspect the BiomeIslands region at your current position.
+    default: op
+  biomeislands.command.biomes:
+    description: View enabled weighted island and ocean biomes.
+    default: op
+  biomeislands.command.stats:
+    description: View local BiomeIslands generation counters.
+    default: op
+  biomeislands.command.debug:
+    description: View detailed BiomeIslands layout diagnostics.
+    default: op
