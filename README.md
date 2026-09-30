@@ -1,9 +1,12 @@
-# BiomeIslands 1.5.0
+# BiomeIslands 1.5.1
+
+> Compatibility-only release for Paper/Spigot 26.3.
 
 Created by **Sfekke**. Inspired by the classic **IslandCraft** Bukkit world generator.
 
-BiomeIslands is a Paper/Spigot 26.2 world generator that keeps Minecraft's Vanilla terrain inside
+BiomeIslands is a Paper/Spigot 26.3 world generator that keeps Minecraft's Vanilla terrain inside
 organic biome-themed islands and turns the space between them into broad, varied oceans.
+
 
 ### Commands
 
@@ -51,7 +54,7 @@ biomeislands.command.debug
 
 ### Startup validation
 
-BiomeIslands prints a concise configuration summary and checks for obviously risky or
+On enable, BiomeIslands now prints a concise configuration summary and checks for obviously risky or
 clamped values such as very small water gaps, an ocean floor too close to sea level, or out-of-range
 geometry values. Warnings are advisory and do not rewrite `config.yml`.
 
@@ -59,7 +62,8 @@ geometry values. Warnings are advisory and do not rewrite `config.yml`.
 
 ## Biome weight recipes
 
-The plugin does not impose biome-category switches. Weight `0` disables an individual biome.
+The plugin does not impose biome-category switches. Weight `0` remains the simple way to disable an
+individual biome, which keeps configuration explicit and predictable.
 
 A few example approaches:
 
@@ -67,13 +71,8 @@ A few example approaches:
 - **Temperate-heavy:** increase plains/forest/taiga/birch weights and lower desert/badlands/snow.
 - **Rare exotics:** keep ordinary biomes around `1.0-1.5`, rare biomes around `0.05-0.30`.
 
-## Existing 1.4.2 generation behavior
+These are recipes, not hidden presets; your configured weights remain the source of truth.
 
-The wet-edge seabed handoff remains unchanged: if the island boundary is already underwater, the
-ocean transition anchors to the actual local Vanilla seabed rather than rising toward a fixed
-near-sea-level shelf. Dry coast behavior is unchanged.
-
-Broad ocean climate families remain enabled by default:
 
 ```yaml
 ocean-settings:
@@ -95,4 +94,5 @@ Do not add `--biome BiomeIslands`; the generator supplies its own biome provider
 
 ## Compatibility
 
-The project targets Paper/Spigot 26.2.
+The project targets Paper/Spigot 26.3. Biome registry lookup remains reflection-based, preserving
+the compatibility fix that avoids direct bytecode linkage to `org.bukkit.Registry`.

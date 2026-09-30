@@ -74,12 +74,12 @@ public final class BiomeIslandsCommands {
         sender.sendMessage("Creator: " + BiomeIslandsPlugin.CREATOR);
         sender.sendMessage("Inspired by: IslandCraft, the classic Bukkit island world generator.");
         sender.sendMessage("Purpose: organic Vanilla-terrain biome islands in broad, varied oceans.");
-        sender.sendMessage("Target: Paper/Spigot 26.2 | /bi help for admin tools.");
+        sender.sendMessage("Target: Paper/Spigot 26.3 | /bi help for admin tools.");
     }
 
     private void sendVersion(CommandSender sender) {
         sender.sendMessage("[BiomeIslands] v" + BiomeIslandsPlugin.VERSION
-                + " by " + BiomeIslandsPlugin.CREATOR + " | Paper/Spigot 26.2");
+                + " by " + BiomeIslandsPlugin.CREATOR + " | Paper/Spigot 26.3");
     }
 
     private void sendHelp(CommandSender sender) {

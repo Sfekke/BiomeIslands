@@ -1,8 +1,8 @@
 name: BiomeIslands
-version: '1.5.0'
+version: '1.5.1'
 main: dev.biomeislands.BiomeIslandsPlugin
 description: Endless ocean generator with separated weighted biome-themed islands, varied ocean climates and Vanilla terrain.
-api-version: '26.2'
+api-version: '26.3'
 load: STARTUP
 author: Sfekke
 commands:

@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "dev.biomeislands"
-version = "1.5.0"
+version = "1.5.1"
 
 repositories {
     mavenCentral()
@@ -11,9 +11,8 @@ repositories {
 }
 
 dependencies {
-    // Pin a stable 26.2 API. Using 26.2.build.+ can resolve an alpha/beta API
-    // whose binary shape differs from the stable server (Registry changed during 26.2).
-    compileOnly("io.papermc.paper:paper-api:26.2.build.84-stable")
+    // 26.3 uses Paper's current build-series coordinate. The plugin itself stays API-only.
+    compileOnly("io.papermc.paper:paper-api:26.3.build.+")
 }
 
 java {

@@ -1,9 +1,9 @@
-# BiomeIslands 1.5.0
-# 1.5.0 is a QoL/admin release; 1.4.2 terrain generation is unchanged.
+# BiomeIslands 1.5.1
+# 1.5.1 is a 26.3 compatibility-only release; 1.4.2 terrain generation is unchanged.
 # Commands: /biomeislands or /bi. Permissions are declared in plugin.yml and default to op.
 # IMPORTANT: generation settings are effectively immutable after chunks exist.
 # Test changes in a fresh world; changing them later creates chunk-border seams.
-config-version: 1.5.0
+config-version: 1.5.1
 
 # Vanilla-style fluid cutoff: 63 means the top ocean water block is Y=62.
 sea-level: 63
