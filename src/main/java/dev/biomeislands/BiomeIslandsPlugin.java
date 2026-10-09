@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public final class BiomeIslandsPlugin extends JavaPlugin {
-    public static final String VERSION = "1.5.1";
+    public static final String VERSION = "1.5.2";
     public static final String CREATOR = "Sfekke";
 
     private volatile IslandSettings settings;

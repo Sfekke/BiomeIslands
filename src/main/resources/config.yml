@@ -1,9 +1,9 @@
-# BiomeIslands 1.5.1
-# 1.5.1 is a 26.3 compatibility-only release; 1.4.2 terrain generation is unchanged.
+# BiomeIslands 1.5.2
+# 1.5.2 adds the 26.3 Dappled Forest biome; terrain generation behavior is otherwise unchanged.
 # Commands: /biomeislands or /bi. Permissions are declared in plugin.yml and default to op.
 # IMPORTANT: generation settings are effectively immutable after chunks exist.
 # Test changes in a fresh world; changing them later creates chunk-border seams.
-config-version: 1.5.1
+config-version: 1.5.2
 
 # Vanilla-style fluid cutoff: 63 means the top ocean water block is Y=62.
 sea-level: 63
@@ -109,6 +109,8 @@ biomes:
     weight: 0.55
   - biome: minecraft:forest
     weight: 1.40
+  - biome: minecraft:dappled_forest
+    weight: 0.80
   - biome: minecraft:flower_forest
     weight: 0.55
   - biome: minecraft:birch_forest

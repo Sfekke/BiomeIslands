@@ -1,6 +1,7 @@
-# BiomeIslands 1.5.1
+# BiomeIslands 1.5.2
 
-> Compatibility-only release for Paper/Spigot 26.3.
+> Adds Minecraft 26.3's **Dappled Forest** as a normal weighted island biome at default weight `0.80`.
+> All terrain/layout behavior remains unchanged from 1.5.1.
 
 Created by **Sfekke**. Inspired by the classic **IslandCraft** Bukkit world generator.
 
@@ -73,6 +74,13 @@ A few example approaches:
 
 These are recipes, not hidden presets; your configured weights remain the source of truth.
 
+## Existing 1.4.2 generation behavior
+
+The wet-edge seabed handoff remains unchanged: if the island boundary is already underwater, the
+ocean transition anchors to the actual local Vanilla seabed rather than rising toward a fixed
+near-sea-level shelf. Dry coast behavior is unchanged.
+
+Broad ocean climate families remain enabled by default:
 
 ```yaml
 ocean-settings:

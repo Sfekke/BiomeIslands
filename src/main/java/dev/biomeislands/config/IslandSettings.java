@@ -390,6 +390,7 @@ public record IslandSettings(
             case "plains" -> 1.60;
             case "sunflower_plains" -> 0.55;
             case "forest" -> 1.40;
+            case "dappled_forest" -> 0.80;
             case "flower_forest" -> 0.55;
             case "birch_forest" -> 0.80;
             case "old_growth_birch_forest" -> 0.50;
