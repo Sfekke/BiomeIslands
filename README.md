@@ -1,8 +1,3 @@
-# BiomeIslands 1.5.2
-
-> Adds Minecraft 26.3's **Dappled Forest** as a normal weighted island biome at default weight `0.80`.
-> All terrain/layout behavior remains unchanged from 1.5.1.
-
 Created by **Sfekke**. Inspired by the classic **IslandCraft** Bukkit world generator.
 
 BiomeIslands is a Paper/Spigot 26.3 world generator that keeps Minecraft's Vanilla terrain inside
@@ -92,10 +87,10 @@ Island biome weights and ocean family weights are relative; `weight: 0` disables
 
 ## Multiverse
 
-Create a fresh world with:
+Create a BiomeIslands world with:
 
 ```text
-/mv create Vanilla normal --generator BiomeIslands
+/mv create IslandCraft normal --generator BiomeIslands
 ```
 
 Do not add `--biome BiomeIslands`; the generator supplies its own biome provider.
